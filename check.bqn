@@ -13,9 +13,8 @@ CheckForFolderChangesForever ← {𝕊folder:
 # I found limits are (>⟜20∧<⟜9)changesToQualifyAsEqual currently
 # No false positives found, 1 false negative found at 25.
 CheckForDuplicates ← {changesToQualifyAsEqual𝕊files:
-  𝕨{𝕨𝕊𝕩:
-    (⍋•file.Created∘(folder⊸•file.At)¨)⊸⊏˘ (2↕𝕩)/˜15><∘(¯1⊑(1⊸+⥊+)○≠(⌊`⊢⌊⊏⊸»∘⊢-0∾1+⊣)˝=⌜⟜⌽)´˘ {𝕩↑¨˜⌈´≠¨𝕩}˘2↕𝕩
-  }(".mp3"≡¯4↑⊢)¨⊸/∧𝕩
+  n ← 2↕(".mp3"≡¯4↑⊢)¨⊸/∧𝕩
+  (⍋•file.Created∘(folder⊸•file.At)¨)⊸⊏˘ n/˜15><∘(¯1⊑(1⊸+⥊+)○≠(⌊`⊢⌊⊏⊸»∘⊢-0∾1+⊣)˝=⌜⟜⌽)´˘ {𝕩↑¨˜⌈´≠¨𝕩}˘n
 }
 
 # Playlist folder
